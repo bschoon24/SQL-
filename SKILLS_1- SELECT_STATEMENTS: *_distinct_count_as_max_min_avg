@@ -1,0 +1,50 @@
+/*
+  SELECT Statements,
+  *, Distinct, Count, AS,  Max, Min, Avg 
+*/
+
+SELECT 
+ *
+FROM `practice-381420.EmployeeDemo.Employee_demographics` 
+
+
+SELECT 
+ DISTINCT EmployeeID
+FROM `practice-381420.EmployeeDemo.Employee_demographics` 
+
+/* 1001, 1002, 1003, 1004, 1005, 1006, 1007, 1008, 1009 */
+
+SELECT 
+  count(last_name)
+FROM 
+  `practice-381420.EmployeeDemo.Employee_demographics` 
+
+/* 9 */
+
+SELECT
+  count (last_name) AS lastnamecount
+FROM 
+  `practice-381420.EmployeeDemo.Employee_demographics`
+
+/* 9, coloum name: lastnamecount */
+
+SELECT
+  MIN(salary)
+FROM
+  `practice-381420.EmployeeDemo.Employee_Salary`
+
+/*36000 */
+
+SELECT 
+  AVG(salary)
+FROM
+  `practice-381420.EmployeeDemo.Employee_Salary`
+
+/* 48555 */
+
+SELECT
+  MAX(salary)
+FROM
+  `practice-381420.EmployeeDemo.Employee_Salary`  
+
+/* 65000 */
