@@ -1,0 +1,75 @@
+/* inner joins, Full/Left/Right, Outer Joins */
+
+SELECT
+  *
+FROM 
+  `practice-381420.EmployeeDemo.Employee_demographics`
+
+SELECT
+  *
+FROM
+  `practice-381420.EmployeeDemo.Employee_Salary`
+
+SELECT
+  *
+FROM 
+  `practice-381420.EmployeeDemo.Employee_demographics` a
+  JOIN
+  `practice-381420.EmployeeDemo.Employee_Salary` b
+  ON a.EmployeeID = b.EmployeeID
+
+/* pulled only matching coloums */
+
+SELECT
+  *
+FROM 
+  `practice-381420.EmployeeDemo.Employee_demographics` a
+   Full Outer JOIN
+  `practice-381420.EmployeeDemo.Employee_Salary` b
+  ON a.EmployeeID = b.EmployeeID
+
+/* pulled everything from both tables, including null */
+
+  SELECT
+  *
+FROM 
+  `practice-381420.EmployeeDemo.Employee_demographics` a
+   LEFT OUTER JOIN 
+  `practice-381420.EmployeeDemo.Employee_Salary` b
+  ON a.EmployeeID = b.EmployeeID
+
+  /* pulled everything from left (employee_demographics) table and only matching data from right*/
+
+SELECT
+  *
+FROM 
+  `practice-381420.EmployeeDemo.Employee_demographics` a
+  RIGHT OUTER JOIN 
+  `practice-381420.EmployeeDemo.Employee_Salary` b
+  ON a.EmployeeID = b.EmployeeID
+
+   /* pulled everything from right (employee_salary) table and only matching data from left*/
+
+
+/* Write a query showing the highest paid employee whose name is not Michael*/
+
+SELECT
+  a.EmployeeID, first_name, last_name, Job_Title, Salary
+FROM 
+  `practice-381420.EmployeeDemo.Employee_demographics` a
+  INNER JOIN
+  `practice-381420.EmployeeDemo.Employee_Salary` b
+  ON a.EmployeeID = b.EmployeeID
+WHERE first_name <> 'Michael'
+ORDER BY SALARY DESC
+
+/* calculate the avg salary for each salesman */
+SELECT
+   Job_Title, avg(Salary)
+FROM 
+  `practice-381420.EmployeeDemo.Employee_demographics` a
+  INNER JOIN
+  `practice-381420.EmployeeDemo.Employee_Salary` b
+  ON a.EmployeeID = b.EmployeeID
+WHERE Job_Title = 'salesman'
+Group BY Job_Title
