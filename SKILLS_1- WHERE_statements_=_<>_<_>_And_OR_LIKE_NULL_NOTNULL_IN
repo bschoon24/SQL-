@@ -1,0 +1,66 @@
+/* WHERE Statement
+  =, <>, <, >, AND, OR, LIKE, NULL, NOT NULL, IN */
+
+  SELECT
+    *
+  FROM
+    `practice-381420.EmployeeDemo.Employee_demographics`
+  WHERE
+    first_name = 'Jim'
+  /* 1001 JIM HALPERT 30 MALE */
+
+SELECT
+    *
+  FROM
+    `practice-381420.EmployeeDemo.Employee_demographics`
+  WHERE
+    first_name <> 'Jim'
+ 
+/* pulled everyone else in the table, except Jim Halpert */
+
+SELECT
+  *
+FROM 
+   `practice-381420.EmployeeDemo.Employee_demographics`
+WHERE
+  age > 30
+
+/* pulled: toby, michael, stanley, kevin, meredith, angela
+Same query can be applied with the <, >=, and <= */
+
+SELECT
+  *
+FROM 
+   `practice-381420.EmployeeDemo.Employee_demographics`
+WHERE
+  age <= 32 AND gender = 'male'
+
+/* Results: Kevin and Dwight 
+Same query can be applied with OR function*/
+
+SELECT
+  *
+FROM 
+   `practice-381420.EmployeeDemo.Employee_demographics`
+WHERE
+  last_name LIKE 'S%'
+
+/* returned Michael Scott and Dwight Schrute.
+  %= wildcard */
+SELECT
+  *
+FROM 
+   `practice-381420.EmployeeDemo.Employee_demographics`
+WHERE
+  last_name is NOT NULL
+  
+  /*returned everyone in the table since no cells were NULL */
+
+SELECT
+  *
+FROM 
+   `practice-381420.EmployeeDemo.Employee_demographics`
+WHERE
+  first_name IN ('Jim', 'Michael', 'Dwight')
+
+/* returned Jim, Michael and Dwight */
