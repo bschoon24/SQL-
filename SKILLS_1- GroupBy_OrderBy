@@ -1,0 +1,59 @@
+/* Group By, Order BY */
+
+SELECT
+  gender
+FROM
+  `practice-381420.EmployeeDemo.Employee_demographics`
+GROUP BY
+  gender
+
+/* results: Male, male, female */
+
+SELECT
+  gender, count(gender),
+FROM
+  `practice-381420.EmployeeDemo.Employee_demographics`
+GROUP BY
+  gender
+
+/*results: Male 3, male 3, female 3 */
+
+SELECT
+  gender, count(gender),
+FROM
+  `practice-381420.EmployeeDemo.Employee_demographics`
+WHERE age > 34
+GROUP BY
+  gender
+
+/*Results: Male 1*/
+
+SELECT
+  gender, count(gender) AS countgender
+FROM
+  `practice-381420.EmployeeDemo.Employee_demographics`
+WHERE age > 31
+GROUP BY
+  gender
+ORDER BY
+  countgender
+
+/* male 1, female 1, Male 2 */
+
+SELECT
+  *
+FROM
+  `practice-381420.EmployeeDemo.Employee_demographics`
+ORDER BY
+  age, gender
+
+/* results: pulled entire table ordering by age and gender in asc fashion. */
+
+SELECT
+  *
+FROM
+  `practice-381420.EmployeeDemo.Employee_demographics`
+ORDER BY
+  4 DESC, 5 DESC
+
+/* results: pulled entire table, and ordered colomns 4 and 5 in desc order */
