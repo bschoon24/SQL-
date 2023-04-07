@@ -1,0 +1,32 @@
+/* Union, Union ALL */
+
+SELECT
+  *
+FROM
+  `practice-381420.EmployeeDemo.Employee_demographics` a
+  Full Outer JOIN
+  `practice-381420.EmployeeDemo.Warehouse_employee_demographics` b
+  ON a.EmployeeID= b.EmployeeID
+
+SELECT
+  *
+FROM 
+  `practice-381420.EmployeeDemo.Employee_demographics`
+UNION ALL 
+SELECT 
+  *
+FROM 
+  `practice-381420.EmployeeDemo.Warehouse_employee_demographics`
+ORDER BY
+  EmployeeID
+
+
+SELECT 
+  EmployeeID, first_name, Age
+FROM
+  `practice-381420.EmployeeDemo.Employee_demographics`
+UNION ALL
+SELECT
+  EmployeeID, Job_title, Salary
+FROM 
+  `practice-381420.EmployeeDemo.Employee_Salary`
