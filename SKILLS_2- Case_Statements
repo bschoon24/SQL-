@@ -1,0 +1,32 @@
+
+/* CASE Statements
+
+calculate what employee salary will be after they receive their raise using a case statement*/
+
+SELECT
+first_name, last_name, Salary,
+CASE
+WHEN Job_title = 'salesman' THEN 'salary + ( Salary * .10)' 
+WHEN job_title = 'accountant' THEN 'salary + (salary * .05)'
+WHEN job_title = 'HR' THEN 'salary + (salary * .0001)'
+ELSE 'salary + (salary * .03)'
+END
+ FROM
+  `practice-381420.EmployeeDemo.Employee_demographics` a
+INNER JOIN 
+  `practice-381420.EmployeeDemo.Employee_Salary` b
+ON a.EmployeeID = b.EmployeeID
+
+
+SELECT
+first_name, last_name, age,
+CASE
+When age > '30' THEN result 'old'
+ELSE 'Young'
+END
+FROM
+  `practice-381420.EmployeeDemo.Employee_demographics`
+WHERE
+  age IS NOT NULL
+ORDER BY
+age
